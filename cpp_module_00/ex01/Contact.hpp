@@ -15,8 +15,8 @@ class Contact
         std::string FirstName;
         std::string LastName;
         std::string NickName;
-        std::string City;
-        std::string Country;
+        std::string PhoneNumber;
+        std::string DarkestSecret;
 };
 
 #endif

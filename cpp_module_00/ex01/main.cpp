@@ -1,7 +1,7 @@
 #include "PhoneBook.hpp"
 
 void    intro(void){
-    std::cout << std::endl << "Welkom to PhoneBook!" << std::endl;
+    std::cout << std::endl << "Welkom to the PhoneBook!" << std::endl;
     std::cout << "This Phonebook has the following options:" << std::endl;
     std::cout << "\tADD: Add contact to phonebook." << std::endl;
     std::cout << "\tSEARCH: Search trough phonebook." << std::endl;

@@ -2,10 +2,11 @@
 
 void    Contact::PrintContact(void){
     std::cout << "Contact info: " << std::endl;
-    std::cout << '\t' + FirstName << std::endl;
-    std::cout << '\t' + LastName << std::endl;
-    std::cout << '\t' + City << std::endl;
-    std::cout << '\t' + Country << std::endl;
+    std::cout << '\t' << "Firstname: " + FirstName << std::endl;
+    std::cout << '\t' << "Lastname: " + LastName << std::endl;
+    std::cout << '\t' << "Nickname: " + NickName << std::endl;
+    std::cout << '\t' << "City: " + PhoneNumber << std::endl;
+    std::cout << '\t' << "Country: " + DarkestSecret << std::endl;
 }
 
 void    Contact::FillContact(void){
@@ -16,9 +17,9 @@ void    Contact::FillContact(void){
     std::cout << "Fill in Nickname: ";
     std::getline(std::cin, NickName);
     std::cout << "Fill in City: ";;
-    std::getline(std::cin, City);
+    std::getline(std::cin, PhoneNumber);
     std::cout << "Fill in Country: ";
-    std::getline(std::cin, Country);
+    std::getline(std::cin, DarkestSecret);
     std::cout << std::endl;
     PrintContact();
 }

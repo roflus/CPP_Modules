@@ -9,8 +9,19 @@ void    Contact::PrintContact(void){
     std::cout << '\t' << "Country: " + DarkestSecret << std::endl;
 }
 
-static bool    CheckIfEmpty(std::string string){
-    if (string.empty()){
+static bool CheckEmptySpace(std::string string){
+    unsigned long i = 0;
+    while (i < string.length()){
+        if (isspace(string[i]))
+            i++;
+        else
+            return (true);
+    }
+    return (false);
+}
+
+static bool CheckIfEmpty(std::string string){
+    if (string.empty() || CheckEmptySpace(string) == false){
         std::cout << "Contact fields cannot be empty" << std::endl;
         return (true);
     }
@@ -54,7 +65,7 @@ void    Contact::FillContact(void){
 
 static std::string  Truncate(std::string string){
     if (string.length() > 10){
-        return (string.substr(0, 8) + ".");
+        return (string.substr(0, 9) + ".");
     }
     return(string);
 }

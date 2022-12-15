@@ -3,15 +3,16 @@
 
 # include <iomanip>
 # include <iostream>
+# include <string>
 
 class Contact
 {
     public:
         void FillContact(void);
-        void Display(void);
+        void Display(int i);
+        void PrintContact(void);
     
     private:
-        void PrintContact(void);
         std::string FirstName;
         std::string LastName;
         std::string NickName;

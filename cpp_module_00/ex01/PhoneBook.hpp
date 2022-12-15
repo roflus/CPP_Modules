@@ -2,20 +2,20 @@
 # define PHONEBOOK_H
 
 # include "Contact.hpp"
-# include <iostream>
+# include <sstream>
 
 class PhoneBook
 {
     public:
         PhoneBook();
-        // ~PhoneBook();
 
         void AddContact(void);
-        // void SearchContacts();
+        void SearchContacts(void);
+
     private:
+        void DisplayBook(void);
+        void RemoveOldest(void);
         int ContactIndex;
-        // int contactmount;
-        // int maxamount;
         Contact contact[8];
 };
 

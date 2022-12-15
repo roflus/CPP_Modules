@@ -9,31 +9,25 @@ void    intro(void){
     std::cout << std::endl;
 }
 
-int main(void)
-{
-
+int main(void){
     PhoneBook   phonebook;
     std::string command;
     bool        input = true;
 
     intro();
-    while (input == true)
-    {
+    while (input == true){
         std::cout << "Enter a command: ADD, SEARCH or EXIT." << std::endl << "Input: ";
         std::getline(std::cin, command);
         if (command == "ADD")
             phonebook.AddContact();
-        else if (command == "SEARCH"){
-            std::cout << "SEARCH";
-            // searchcontact
-        }
+        else if (command == "SEARCH")
+            phonebook.SearchContacts();
         else if (command == "EXIT"){
             std::cout << "Exiting PhoneBook." << std::endl;
             input = false;
         }
-        else{
+        else
             std::cout << "Please enter a valid command." << std::endl;
-        }
     }
     return (EXIT_SUCCESS);
 }

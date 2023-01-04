@@ -1,9 +1,8 @@
 #ifndef ZOMBIE_H
 # define ZOMBIE_H
 
-#include <sstream>
 # include <iostream>
-# include <string>
+// # include <string>
 
 class Zombie{
 

@@ -29,5 +29,5 @@ int main(void){
         else
             std::cout << "Please enter a valid command." << std::endl;
     }
-    return (EXIT_SUCCESS);
+    return EXIT_SUCCESS;
 }

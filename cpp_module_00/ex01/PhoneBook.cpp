@@ -33,10 +33,10 @@ static bool    check_digit(std::string string){
     while (i < string.length())
     {
         if (!isdigit(string[i]))
-            return (false);
+            return false;
         i++;
     }
-    return (true);
+    return true;
 }
 
 void    PhoneBook::SearchContacts(void) {

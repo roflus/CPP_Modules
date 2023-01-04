@@ -5,8 +5,8 @@ void    Contact::PrintContact(void){
     std::cout << '\t' << "Firstname: " + FirstName << std::endl;
     std::cout << '\t' << "Lastname: " + LastName << std::endl;
     std::cout << '\t' << "Nickname: " + NickName << std::endl;
-    std::cout << '\t' << "City: " + PhoneNumber << std::endl;
-    std::cout << '\t' << "Country: " + DarkestSecret << std::endl;
+    std::cout << '\t' << "Phonenumber: " + PhoneNumber << std::endl;
+    std::cout << '\t' << "Darkestsecret: " + DarkestSecret << std::endl;
 }
 
 static bool CheckEmptySpace(std::string string){
@@ -15,17 +15,17 @@ static bool CheckEmptySpace(std::string string){
         if (isspace(string[i]))
             i++;
         else
-            return (true);
+            return true;
     }
-    return (false);
+    return false;
 }
 
 static bool CheckIfEmpty(std::string string){
     if (string.empty() || CheckEmptySpace(string) == false){
         std::cout << "Contact fields cannot be empty" << std::endl;
-        return (true);
+        return true;
     }
-    return (false);
+    return false;
 }
 
 void    Contact::FillContact(void){

@@ -1,4 +1,4 @@
-NAME = Fixed01
+NAME = Fixed00
 FLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = ./Fixed.cpp ./main.cpp
 
@@ -9,7 +9,7 @@ $(NAME): $(OBJ)
 	c++ $(OBJ) -o $(NAME)
 
 %.o: %.cpp
-	c++  -c $< -o $@
+	c++ $(FLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJ)

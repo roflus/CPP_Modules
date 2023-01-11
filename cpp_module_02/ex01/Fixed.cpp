@@ -1,5 +1,6 @@
 #include "Fixed.hpp"
 #include "iostream"
+#include "math.h"
 
 Fixed::Fixed(void){
     std::cout << "Default constructor called" << std::endl;
@@ -13,6 +14,7 @@ Fixed::Fixed(const int number){
 
 Fixed::Fixed(const float numberf){
     std::cout << "Float constructor called" << std::endl;
+    this->fixedPointNumber = roundf(numberf * (1 << Fixed::fractionalBits));
 }
 
 Fixed::Fixed(const Fixed &old_obj){
@@ -51,5 +53,5 @@ float   Fixed::toFloat(void) const{
 }
 
 int     Fixed::toInt(void) const{
-    return this->fixedPointNumber >> Fixed::fractionalBits;
+    return this->getRawBits() >> Fixed::fractionalBits;
 }

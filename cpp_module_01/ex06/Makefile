@@ -1,6 +1,6 @@
-NAME = BorderLands01
+NAME = Harl
 FLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = ./ClapTrap.cpp ./ScavTrap.cpp ./main.cpp
+SRC = ./Harl.cpp ./main.cpp
 
 OBJ = $(SRC:%.cpp=%.o)
 
@@ -9,7 +9,7 @@ $(NAME): $(OBJ)
 	c++ $(OBJ) -o $(NAME)
 
 %.o: %.cpp
-	c++  -c $< -o $@
+	c++ $(FLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJ)

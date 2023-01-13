@@ -6,16 +6,16 @@
 class WAnimal
 {
 private:
-    /* data */
+
 protected:
     std::string type;
 public:
     WAnimal(void);
     WAnimal(const WAnimal &old_obj);
     WAnimal &operator = (const WAnimal &old_obj);
-    ~WAnimal(void);
+    virtual ~WAnimal(void);
 
-    void makeSound(void) const;
+    virtual void makeSound(void) const;
     std::string getType(void) const;
 };
 

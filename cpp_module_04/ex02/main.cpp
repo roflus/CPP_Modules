@@ -3,9 +3,11 @@
 
 int main(void)
 {
+
+    // const Animal* meta = new Animal();
     const Animal* j = new Dog();
     const Animal* i = new Cat();
-    
+
     std::cout << std::endl;
     // Animal **animalArray = new Animal*[4];
     Animal *animalArray[4];

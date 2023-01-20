@@ -25,7 +25,7 @@ void    Harl::complain(std::string level){
     // loop om langs alle levels te gaan
     int i = 0;
     while (i < 4){
-        void (Harl::*theComplaint)() = complaints[i];
+        void (Harl::*theComplaint)() = complaints[i]; 
         if (level == levels[i]){
             (this->*theComplaint)();
             return ;

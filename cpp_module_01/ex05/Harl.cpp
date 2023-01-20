@@ -13,9 +13,9 @@ void    Harl::complain(std::string level){
         "Warning",
         "Error"
     };
+
     // ponter function met alle funties
-    
-    void  (Harl::*complaints[])() ={
+    void  (Harl::*complaints[])() = {
         &Harl::debug,
         &Harl::info,
         &Harl::warning,

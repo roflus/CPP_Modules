@@ -1,18 +1,20 @@
 #ifndef RobotomyRequestForm_HPP
 #define RobotomyRequestForm_HPP
 
-#include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class RobotomyRequestForm : public Form
+class RobotomyRequestForm : public AForm
 {
 private:
-    /* data */
+    const std::string &target;
 public:
-    RobotomyRequestForm(/* args */);
+    RobotomyRequestForm(const std::string &target);
     RobotomyRequestForm(const RobotomyRequestForm &old_obj);
     RobotomyRequestForm &operator=(const RobotomyRequestForm &old_obj);
     ~RobotomyRequestForm();
+
+    void    execute(Bureaucrat const &executor) const;
+
 };
 
 #endif

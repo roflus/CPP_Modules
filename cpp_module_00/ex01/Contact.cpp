@@ -10,7 +10,7 @@ void    Contact::PrintContact(void){
 }
 
 static bool CheckEmptySpace(std::string string){
-    unsigned long i = 0;
+    size_t i = 0;
     while (i < string.length()){
         if (isspace(string[i]))
             i++;

@@ -1,8 +1,5 @@
 # include "PhoneBook.hpp"
-
-PhoneBook::PhoneBook(){
-    ContactIndex = 0;
-}
+# include <sstream>
 
 void    PhoneBook::RemoveOldest(void){
     for(int i = 0; i < 7; i++)
@@ -61,10 +58,10 @@ void    PhoneBook::SearchContacts(void) {
 				input_check = false;
 			}
 			else
-				std::cout << "Please enter a number between 1 and 8" << std::endl;
+				std::cout << "Please enter a number between 1 and " << ContactIndex << std::endl;
 		}
 		if (idx < 1 || idx > ContactIndex){
-        	std::cout << "Index out of range, choose number between 1 and 8" << std::endl;
+        	std::cout << "Index out of range, choose number between 1 and " << ContactIndex << std::endl;
 			input_check = true;
 		}
 		else{

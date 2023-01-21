@@ -7,17 +7,18 @@
 
 class Contact
 {
-    public:
-        void FillContact(void);
-        void Display(int i);
-        void PrintContact(void);
-    
     private:
         std::string FirstName;
         std::string LastName;
         std::string NickName;
         std::string PhoneNumber;
         std::string DarkestSecret;
+
+    public:
+        void FillContact(void);
+        void Display(int i);
+        void PrintContact(void);
+    
 };
 
 #endif

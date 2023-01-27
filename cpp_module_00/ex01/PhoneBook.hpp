@@ -5,6 +5,7 @@
 
 class PhoneBook
 {
+    
     private:
         void DisplayBook(void);
         void RemoveOldest(void);
@@ -12,6 +13,8 @@ class PhoneBook
         Contact contact[8];
 
     public:
+        PhoneBook();
+        ~PhoneBook();
         void AddContact(void);
         void SearchContacts(void);
 };

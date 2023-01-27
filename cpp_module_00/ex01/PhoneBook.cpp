@@ -1,5 +1,10 @@
 # include "PhoneBook.hpp"
-# include <sstream>
+# include <cstdlib>
+# include <iomanip>
+
+PhoneBook::PhoneBook() : ContactIndex(0){}
+
+PhoneBook::~PhoneBook(){}
 
 void    PhoneBook::RemoveOldest(void){
     for(int i = 0; i < 7; i++)
@@ -12,11 +17,12 @@ void    PhoneBook::AddContact(void) {
         RemoveOldest();
         ContactIndex--;
     }
-    contact[ContactIndex -1].FillContact();
+    contact[ContactIndex - 1].FillContact();
 }
 
 void    PhoneBook::DisplayBook(void){
-    std::cout << std::endl << std::setw(10) << "Index" << "|"; 
+    std::cout << std::endl;
+    std::cout << std::setw(10) << "Index" << "|"; 
     std::cout << std::setw(10) << "Firstname" << "|";
     std::cout << std::setw(10) << "Lastname" << "|";
     std::cout << std::setw(10) << "Nickname" << "|" << std::endl;
@@ -52,9 +58,7 @@ void    PhoneBook::SearchContacts(void) {
 			std::cout << "Enter index of contact to display: ";
 			std::getline(std::cin, index);
 			if (check_digit(index) == true){
-				std::stringstream temp;
-				temp << index;
-				temp >> idx;
+                idx = atoi(index.c_str());
 				input_check = false;
 			}
 			else

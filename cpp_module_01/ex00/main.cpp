@@ -1,4 +1,4 @@
-#include "Zombie.hpp"
+# include "Zombie.hpp"
 
 Zombie* newZombie(std::string name);
 void randomChump(std::string name);
@@ -9,9 +9,13 @@ int main(void){
 
     zombie = newZombie("Heap");
     delete zombie;
+
     zombie = newZombie("Henk");
+    zombie->announce();
+    delete zombie;
+
     randomChump("Stack");
     randomChump("henk");
-    delete zombie;
+    
     return EXIT_SUCCESS;
 }

@@ -6,15 +6,15 @@
 class HumanB
 {
 private:
-    std::string name;
+    std::string _name;
+    Weapon *_weaponB;
+
 public:
     HumanB(std::string name);
     ~HumanB(void);
 
-    Weapon *weaponB;
     void    setWeapon(Weapon &weapon);
     void    attack(void);
-
 };
 
 #endif

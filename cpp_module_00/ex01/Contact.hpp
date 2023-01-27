@@ -1,7 +1,6 @@
 #ifndef CONTACT_H
 # define CONTACT_H
 
-# include <iomanip>
 # include <iostream>
 # include <string>
 
@@ -18,7 +17,6 @@ class Contact
         void FillContact(void);
         void Display(int i);
         void PrintContact(void);
-    
 };
 
 #endif

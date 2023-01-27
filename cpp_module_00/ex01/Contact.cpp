@@ -1,4 +1,5 @@
-#include "Contact.hpp"
+# include "Contact.hpp"
+# include <iomanip>
 
 void    Contact::PrintContact(void){
     std::cout << "Contact info: " << std::endl;

@@ -1,17 +1,19 @@
 # include <iostream>
+# include <string>
 # include <cctype>
-# include <cstring>
 
 int main (int argc, char **argv)
 {
     if (argc == 1)
         std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-    size_t k, i = 1;
-    while (argv[i])
+    size_t k;
+    int i = 1;
+    while (i < argc)
     {
-        for(k = 0; k <= strlen(argv[i]); k++)
-            argv[i][k] = toupper(argv[i][k]);
-        std::cout << argv[i];
+        std::string str = argv[i];
+        for(k = 0; k <= str.length(); k++)
+            str[k] = toupper(str[k]);
+        std::cout << str;
         i++;
     }
     std::cout << std::endl;

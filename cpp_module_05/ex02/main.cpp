@@ -5,19 +5,31 @@
 
 int main(void){
 
-    Bureaucrat buur("Henk", 140);
-    ShrubberyCreationForm SCForm("home");
-    buur.signAForm(SCForm);
-    buur.executeForm(SCForm);
+    // Bureaucrat buur("Henk", 140);
+    // ShrubberyCreationForm SCForm("home");
+    // buur.signAForm(SCForm);
+    // buur.executeForm(SCForm);
 
 
-    // Bureaucrat buur("Jan", 60);
-    // RobotomyRequestForm RRForm("Robot");
-    // buur.signAForm(RRForm);
-    // buur.executeForm(RRForm);
-    // buur.executeForm(RRForm);
-    // buur.executeForm(RRForm);
-    // buur.executeForm(RRForm);
+    Bureaucrat buur("Jan", 6);
+    RobotomyRequestForm RRForm("Robot");
+    buur.signAForm(RRForm);
+    buur.executeForm(RRForm);
+    buur.executeForm(RRForm);
+    buur.executeForm(RRForm);
+    buur.executeForm(RRForm);
+    buur.executeForm(RRForm);
+    buur.executeForm(RRForm);
+    buur.executeForm(RRForm);
+    buur.executeForm(RRForm);
+    buur.executeForm(RRForm);
+    buur.executeForm(RRForm);
+    buur.executeForm(RRForm);
+
+
+
+
+
 
     // Bureaucrat buur("Kees", 4);
     // PresidentialPardonForm PPForm("Henk");

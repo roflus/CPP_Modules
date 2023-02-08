@@ -10,7 +10,6 @@ void HumanB::setWeapon(Weapon &weapon){
     this->_weaponB = &weapon;
 }
 
-
 void HumanB::attack(){
     if (!this->_weaponB)
         std::cout << this->_name + " attacks unarmed " << std::endl;

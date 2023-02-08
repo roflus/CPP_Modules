@@ -31,7 +31,8 @@ int main(void){
 
 
     try{
-        Bureaucrat buro("henk", -140);
+        Bureaucrat buur("jan", 150);
+        // Bureaucrat buro("henk", 140);
     }
     catch(Bureaucrat::GradeTooLowException &e){
         std::cout << "Exception caught" << std::endl;
@@ -41,4 +42,5 @@ int main(void){
         std::cout << "Exception caught" << std::endl;
         std::cout << e.what() << std::endl;
     }
+    // std::cout << buur.getGrade() << std::endl;
 }  

@@ -1,13 +1,13 @@
-#ifndef FIXED_H
-#define FIXED_H
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
 #include <iostream>
 
 class Fixed
 {
     private:
-        int fixedPointNumber;
-        static const int fractionalBits = 8;
+        int _fixedPointNumber;
+        static const int _fractionalBits = 8;
 
     public:
         Fixed(void);

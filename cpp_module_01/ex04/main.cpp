@@ -1,10 +1,9 @@
 #include <iostream>
 #include <fstream>
 
-
 static bool inputCheck(int argc){
     if (argc != 4){
-        std::cout << "Only 3 arguments" << std::endl;
+        std::cout << "Need 3 arguments" << std::endl;
         return false;
     }
     return true;
@@ -16,16 +15,16 @@ int main(int argc, char **argv){
         return EXIT_FAILURE;
     // Open infile
     std::ifstream   infile;
-    std::string     newNameIn = argv[1];
-    infile.open(argv[1], std::ios::in);
+    std::string     fileName = argv[1];
+    infile.open(fileName, std::ios::in);
     if (!infile){
         std::cout << "Can't open infile" << std::endl;
         return EXIT_FAILURE;
     }
     // Open outfile
     std::ofstream   outfile;
-    std::string     newNameOut = newNameIn + ".replace";
-    outfile.open(newNameOut, std::ios::out | std::ios::app);
+    std::string     newFileName = fileName + ".replace";
+    outfile.open(newFileName, std::ios::out | std::ios::app);
     if (!outfile){
         std::cout << "Can't open outfile" << std::endl;
         return EXIT_FAILURE;

@@ -13,10 +13,10 @@ class ClapTrap
         ClapTrap &operator = (const ClapTrap &old_obj);
         ~ClapTrap();
 
-        std::string     name;
-        unsigned int    hitPoints;
-        unsigned int    energyPoints;
-        unsigned int    attackDamage;
+        std::string     _name;
+        unsigned int    _hitPoints;
+        unsigned int    _energyPoints;
+        unsigned int    _attackDamage;
 
         void    attack(const std::string& target);
         void    takeDamage(unsigned int amount);

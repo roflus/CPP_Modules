@@ -5,7 +5,7 @@ int main(void){
     ClapTrap henk("henk");
     ClapTrap klaas("klaas");
     ClapTrap jan(henk);
-    ClapTrap Kees;
+    ClapTrap kees;
     kees = klaas;
 
 

@@ -30,8 +30,7 @@ void    Harl::complain(std::string level){
             break ;
     }
 
-    switch (i)
-    {
+    switch (i) {
     case 0:
         (this->*functions[0])();
     case 1:

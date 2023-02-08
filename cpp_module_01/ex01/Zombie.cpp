@@ -8,7 +8,7 @@ Zombie::~Zombie(void){
 
 void    Zombie::nameZombie(std::string name){
     if (name == "")
-        this->_name = "Horde";
+        this->_name = "Zombie";
     this->_name = name;
 }
 

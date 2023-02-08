@@ -6,16 +6,12 @@ void randomChump(std::string name);
 int main(void){
 
     Zombie *zombie;
-
     zombie = newZombie("Heap");
-    delete zombie;
-
-    zombie = newZombie("Henk");
     zombie->announce();
     delete zombie;
 
+    std::cout << std::endl;
     randomChump("Stack");
-    randomChump("henk");
-    
+
     return EXIT_SUCCESS;
 }

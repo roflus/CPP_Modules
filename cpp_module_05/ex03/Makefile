@@ -1,6 +1,8 @@
 NAME = Bureau
 FLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = ./Bureaucrat.cpp ./Form.cpp ./main.cpp
+SRC = ./Bureaucrat.cpp ./AForm.cpp ./PresidentialPardonForm.cpp \
+	./RobotomyRequestForm.cpp ./ShrubberyCreationForm.cpp \
+	./Intern.cpp ./main.cpp
 
 OBJ = $(SRC:%.cpp=%.o)
 

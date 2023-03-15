@@ -2,27 +2,27 @@
 
 int main(void){
 
-    ClapTrap henk("henk");
-    ClapTrap klaas("klaas");
-    ClapTrap jan(henk);
-    ClapTrap kees;
-    kees = klaas;
-
-
-    klaas.attack("henk");
-    henk.takeDamage(5);
-
-    henk.attack("klaas");
-    klaas.takeDamage(5);
-    
-    klaas.attack("henk");
-    henk.takeDamage(4);
-
-    henk.attack("klaas");
-    henk.beRepaired(10);
-    
-    jan.attack("henk");
-    jan.takeDamage(15);
-
+    {
+        ClapTrap standard;
+        for (int i = 0; i <= 10; i++)
+            standard.attack("Player");
+        standard.beRepaired(10);
+    }
+    std::cout << std::endl;
+    {
+        ClapTrap claptrap("Zer0");
+        claptrap.takeDamage(9);
+        claptrap.beRepaired(2);
+        claptrap.beRepaired(2);
+        claptrap.beRepaired(5);
+    }
+    std::cout << std::endl;
+    {
+        ClapTrap standard;
+        ClapTrap copy = standard;
+        copy.takeDamage(100);
+        copy.attack("standard");
+        copy.beRepaired(10);  
+    }
     return EXIT_SUCCESS;
 }

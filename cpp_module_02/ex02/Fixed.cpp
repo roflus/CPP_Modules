@@ -10,20 +10,16 @@ Fixed::Fixed(void) : _fixedPointNumber(0){
 
 Fixed::Fixed(const int number) : _fixedPointNumber(number << Fixed::_fractionalBits) {
     std::cout << "Int constructor called" << std::endl;
-    // this->_fixedPointNumber = number << Fixed::_fractionalBits;
 }
 
 Fixed::Fixed(const float numberf) : _fixedPointNumber(roundf(numberf * (1 << Fixed::_fractionalBits))) {
     std::cout << "Float constructor called" << std::endl;
-    // this->_fixedPointNumber = roundf(numberf * (1 << Fixed::_fractionalBits));
 }
 
 /* ---------------------------Copy constructor------------------------------------*/
 
-Fixed::Fixed(const Fixed &old_obj) : _fixedPointNumber(old_obj.getRawBits()){
+Fixed::Fixed(const Fixed &old_obj) : _fixedPointNumber(old_obj.getRawBits()) {
     std::cout << "Copy constructor called" << std::endl;
-    // this->_fixedPointNumber = old_obj.getRawBits();
-    // *this = old_obj;
 }  
 
 /* ---------------------------Destructor------------------------------------*/

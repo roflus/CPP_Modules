@@ -2,7 +2,7 @@
 
 WAnimal::WAnimal(void){
     std::cout << "WAnimal default constructor called" << std::endl;
-    this->type = "GeenDier";
+    this->_type = "GeenDier";
 }
 
 WAnimal::WAnimal(const WAnimal &old_obj){
@@ -12,7 +12,7 @@ WAnimal::WAnimal(const WAnimal &old_obj){
 
 WAnimal &WAnimal::operator=(const WAnimal &old_obj){
     std::cout << "WAnimal copy assignment operator called" << std::endl;
-    this->type = old_obj.type;
+    this->_type = old_obj._type;
     return *this;
 }
 
@@ -25,5 +25,5 @@ void WAnimal::makeSound(void) const{
 }
 
 std::string WAnimal::getType(void) const{
-    return this->type;
+    return this->_type;
 }

@@ -29,15 +29,15 @@ ClapTrap& ClapTrap::operator = (const ClapTrap &old_obj) {
 }
 
 void    ClapTrap::attack(const std::string& target) {
-    if (!this->_hitPoints){
+    if (!this->_hitPoints) {
         std::cout << "ClapTrap " << this->_name << " can't attack, it has no hit points left" << std::endl;
         return ; 
     }
-    if (!this->_energyPoints){
+    if (!this->_energyPoints) {
         std::cout << "ClapTrap " << this->_name << " can't attack, has no energy points left" << std::endl;
         return ; 
     }
-    else{
+    else {
         this->_energyPoints -= 1;
         std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
     }
@@ -48,11 +48,16 @@ void    ClapTrap::takeDamage(unsigned int amount) {
         std::cout << "ClapTrap " << this->_name << " has no hit points left" << std::endl;
         return ; 
     }
-    else{
-        this->_hitPoints -= amount;
-        std::cout << "ClapTrap " << this->_name << " takes " << amount << " points of damage!" << std::endl; 
-        if (this->_hitPoints == 0)
-            std::cout << "ClapTrap " << this->_name << " has no hit points left" << std::endl;
+    else {
+        if (amount >= this->_hitPoints) {
+            this->_hitPoints = 0;
+            std::cout << "ClapTrap " << this->_name << " takes " << amount << " points of damage!" << std::endl; 
+            std::cout << "It has no hit points left" << std::endl;
+        }
+        else {
+            this->_hitPoints -= amount;
+            std::cout << "ClapTrap " << this->_name << " takes " << amount << " points of damage!" << std::endl; 
+        }
     }
 }
 
@@ -65,7 +70,7 @@ void    ClapTrap::beRepaired(unsigned int amount) {
         std::cout << "ClapTrap " << this->_name << " can't repair, it has no energy points left" << std::endl;
         return ; 
     }
-    else{
+    else {
         this->_energyPoints -= 1;
         this->_hitPoints += amount;
         std::cout << "ClapTrap " << this->_name << " repaired itself for " << amount << " hitpoints" << std::endl;

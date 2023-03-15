@@ -2,7 +2,7 @@
 
 WCat::WCat() : WAnimal::WAnimal(){
     std::cout << "WCat default constructor called" << std::endl;
-    this->type = "Wrong Cat";
+    this->_type = "Wrong Cat";
 }
 
 WCat::WCat(const WCat &old_obj) : WAnimal::WAnimal (old_obj){
@@ -11,7 +11,8 @@ WCat::WCat(const WCat &old_obj) : WAnimal::WAnimal (old_obj){
 }
 
 WCat &WCat::operator=(const WCat &old_obj){
-    this->type = old_obj.type;
+    std::cout << "WCat copy assignment operator called" << std::endl;
+    this->_type = old_obj._type;
     return *this;
 }
 

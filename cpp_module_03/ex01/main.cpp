@@ -1,17 +1,29 @@
 #include "ScavTrap.hpp"
 
-int main(void){
+int main(void) {
 
-    ScavTrap a;
-    ScavTrap b("b");
-    ScavTrap c = a;
-    ClapTrap d("baas");
-
-    a.attack("b");
-    b.attack(a.name);
-    c.attack(b.name);
-    c.guardGate();
-    d.attack(a.name);
+    {
+        ScavTrap standard;
+        for (int i = 0; i <= 10; i++)
+            standard.attack("Player");
+        standard.guardGate();
+    }
+    std::cout << std::endl;
+    {
+        ScavTrap scavtrap("Zer0");
+        scavtrap.takeDamage(9);
+        scavtrap.beRepaired(2);
+        scavtrap.beRepaired(2);
+        scavtrap.beRepaired(5);
+        scavtrap.guardGate();
+    }
+    std::cout << std::endl;
+    {
+        ScavTrap standard;
+        ScavTrap copy = standard;
+        copy.takeDamage(100);
+        copy.attack("standard");
+        copy.beRepaired(10);
+    }
     return EXIT_SUCCESS;
-
 }

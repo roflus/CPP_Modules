@@ -8,7 +8,7 @@ class WAnimal
 private:
 
 protected:
-    std::string type;
+    std::string _type;
 public:
     WAnimal(void);
     WAnimal(const WAnimal &old_obj);

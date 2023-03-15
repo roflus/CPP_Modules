@@ -9,7 +9,7 @@ class Fixed
     public:
         Fixed(void);
         Fixed(const Fixed &old_obj);
-        Fixed &operator = (const Fixed &old_obj);
+        Fixed &operator=(const Fixed &old_obj);
         ~Fixed(void);
 
         int     getRawBits(void) const;

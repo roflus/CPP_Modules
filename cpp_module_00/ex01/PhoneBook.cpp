@@ -23,8 +23,8 @@ void    PhoneBook::AddContact(void) {
 void    PhoneBook::DisplayBook(void){
     std::cout << std::endl;
     std::cout << std::setw(10) << "Index" << "|"; 
-    std::cout << std::setw(10) << "Firstname" << "|";
-    std::cout << std::setw(10) << "Lastname" << "|";
+    std::cout << std::setw(10) << "First name" << "|";
+    std::cout << std::setw(10) << "Last name" << "|";
     std::cout << std::setw(10) << "Nickname" << "|" << std::endl;
     for(int i = 0; i < ContactIndex; ++i)
         contact[i].Display(i);

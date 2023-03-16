@@ -10,9 +10,9 @@ class Animal {
         Animal(void);
         Animal(const Animal &old_obj);
         Animal &operator = (const Animal &old_obj);
-        ~Animal(void);
+        virtual ~Animal(void);
 
-        void makeSound(void) const;
+        virtual void makeSound(void) const;
         std::string getType(void) const;
 };
 

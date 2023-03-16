@@ -7,7 +7,7 @@
 class Cat: public Animal
 {
 private:
-    Brain *brain;
+    Brain *_brain;
 public:
     Cat(void);
     Cat(const Cat &old_obj);

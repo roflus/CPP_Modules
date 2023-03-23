@@ -13,14 +13,19 @@ Cat::Cat(const Cat &old_obj) : Animal (old_obj){
 
 Cat &Cat::operator=(const Cat &old_obj){
     this->_type = old_obj._type;
+    this->_brain = new Brain(*old_obj._brain);
     return *this;
 }
 
 Cat::~Cat(){
-    std::cout << "Cat deconstructor called" << std::endl;
     delete this->_brain;
+    std::cout << "Cat deconstructor called" << std::endl;
 }
 
-void    Cat::makeSound(void) const{
+void    Cat::makeSound(void) const {
     std::cout << "Miauw!!" << std::endl;
+}
+
+Brain *Cat::getBrain(void) const {
+    return this->_brain;
 }

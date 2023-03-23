@@ -5,32 +5,56 @@
 
 int main(void)
 {
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
+    const Animal* animal = new Animal();
+    const Animal* dog = new Dog();
+    const Animal* cat = new Cat();
+    std::cout << std::endl;
+
+    std::cout << dog->getType() << " " << std::endl;
+    std::cout << cat->getType() << " " << std::endl;
+    std::cout << std::endl;
+
+    animal->makeSound();
+    dog->makeSound();
+    cat->makeSound(); //will output the cat sound!
+    std::cout << std::endl;
     
 
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
+    delete animal;
+    delete dog;
+    delete cat;
+    std::cout << std::endl << std::endl;
 
-    meta->makeSound();
-    j->makeSound();
-    i->makeSound(); //will output the cat sound!
-    
+    const WAnimal* wanimal = new WAnimal();
+    const WAnimal* wcat = new WCat();
+    std::cout << std::endl;
 
-    delete i;
-    delete j;
-    delete meta;
+    std::cout << wanimal->getType() << " " << std::endl;
+    std::cout << wcat->getType() << " " << std::endl;
+    std::cout << std::endl;
 
-    const WAnimal* beest = new WAnimal();
-    const WAnimal* dier = new WCat();
-    std::cout << beest->getType() << " " << std::endl;
-    std::cout << dier->getType() << " " << std::endl;
-    beest->makeSound();
-    dier->makeSound();
+    wanimal->makeSound();
+    wcat->makeSound();
 
-    delete beest;
-    delete dier;
+    std::cout << std::endl;
+    delete wanimal;
+    delete wcat;
  
+    // extra tests
+    // Cat cat;
+    // Animal *animal = &cat;
+    // std::cout << std::endl;
+
+    // animal->makeSound();
+    // cat.makeSound();
+    // std::cout << std::endl;
+
+    // WCat wcat;
+    // WAnimal *wanimal = &wcat;
+    // std::cout << std::endl;
+
+    // wanimal->makeSound();
+    // wcat.makeSound();
+
     return EXIT_SUCCESS;
 }

@@ -9,7 +9,7 @@ $(NAME): $(OBJ)
 	c++ $(OBJ) -o $(NAME)
 
 %.o: %.cpp %.hpp
-	c++ $(FLAGS)  -c $< -o $@
+	c++ $(FLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJ)

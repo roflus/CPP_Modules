@@ -5,18 +5,16 @@
 
 class WAnimal
 {
-private:
+    protected:
+        std::string _type;
+    public:
+        WAnimal(void);
+        WAnimal(const WAnimal &old_obj);
+        WAnimal &operator = (const WAnimal &old_obj);
+        virtual ~WAnimal(void);
 
-protected:
-    std::string _type;
-public:
-    WAnimal(void);
-    WAnimal(const WAnimal &old_obj);
-    WAnimal &operator = (const WAnimal &old_obj);
-    virtual ~WAnimal(void);
-
-    virtual void makeSound(void) const;
-    std::string getType(void) const;
+        void makeSound(void) const;
+        std::string getType(void) const;
 };
 
 #endif

@@ -2,7 +2,7 @@
 
 WAnimal::WAnimal(void){
     std::cout << "WAnimal default constructor called" << std::endl;
-    this->_type = "GeenDier";
+    this->_type = "Wrong Animal";
 }
 
 WAnimal::WAnimal(const WAnimal &old_obj){
@@ -21,7 +21,7 @@ WAnimal::~WAnimal(void){
 }
 
 void WAnimal::makeSound(void) const{
-    std::cout << "Hey hallo" << std::endl;
+    std::cout << "I am a wrong animal!" << std::endl;
 }
 
 std::string WAnimal::getType(void) const{

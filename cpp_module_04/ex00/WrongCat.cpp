@@ -1,11 +1,11 @@
 #include "WrongCat.hpp"
 
-WCat::WCat() : WAnimal::WAnimal(){
+WCat::WCat() : WAnimal(){
     std::cout << "WCat default constructor called" << std::endl;
     this->_type = "Wrong Cat";
 }
 
-WCat::WCat(const WCat &old_obj) : WAnimal::WAnimal (old_obj){
+WCat::WCat(const WCat &old_obj) : WAnimal (old_obj){
     std::cout << "WCat copy constructor called" << std::endl;
     *this = old_obj;
 }
@@ -21,5 +21,5 @@ WCat::~WCat(){
 }
 
 void    WCat::makeSound(void) const{
-    std::cout << "quack... quack.." << std::endl;
+    std::cout << "Wrong cat sound" << std::endl;
 }

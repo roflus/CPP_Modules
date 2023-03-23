@@ -1,6 +1,6 @@
 NAME = Poly01
 FLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = ./Dog.cpp ./Cat.cpp ./Animal.cpp ./Brain.cpp ./main.cpp
+SRC = ./Dog.cpp ./Cat.cpp ./Animal.cpp ./Brain.cpp ./main.cpp ./WrongAnimal.cpp ./WrongCat.cpp
 
 OBJ = $(SRC:%.cpp=%.o)
 

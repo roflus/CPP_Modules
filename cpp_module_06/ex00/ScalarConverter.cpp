@@ -31,8 +31,12 @@ void    Scalarconverter::convert(void) {
     if (_type == FLOAT)
         castfloat();
     
-    if (_type != ERROR)
-        print();
+    if (_type != ERROR) {
+        printchar();
+        printint();
+        printdouble();
+        printfloat();
+    }
     else
         std::cout << "ERROR" << std::endl;
 }
@@ -48,10 +52,6 @@ int    Scalarconverter::getType(void) {
         return FLOAT;
     else
         return ERROR;
-}
-
-void    Scalarconverter::print(void) {
-    
 }
 
 void    Scalarconverter::castchar(void) {
@@ -80,4 +80,20 @@ void    Scalarconverter::castfloat(void) {
     _char = static_cast<char>(_float);
     _int = static_cast<int>(_float);
     _double = static_cast<double>(_float);
+}
+
+void    Scalarconverter::printchar(void) {
+    std::cout << "Char: " << _char << std::endl;
+}
+
+void    Scalarconverter::printdouble(void) {
+    std::cout << "Double: " << _double << std::endl;
+}
+
+void    Scalarconverter::printfloat(void) {
+    std::cout << "Float: " << _float << std::endl;
+}
+
+void    Scalarconverter::printint(void) {
+    std::cout << "Int: " << _int << std::endl;
 }

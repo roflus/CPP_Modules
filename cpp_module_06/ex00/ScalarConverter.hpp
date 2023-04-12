@@ -33,7 +33,6 @@ class Scalarconverter{
         static void convert(void);
         static int  getType(void);
 
-        static void print(void);
         static void printchar(void);
         static void printint(void);
         static void printdouble(void);

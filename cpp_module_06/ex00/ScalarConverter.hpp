@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <iomanip>
 
 enum    types{
     INT,
@@ -12,7 +13,7 @@ enum    types{
     ERROR,
 };
 
-class Scalarconverter{
+class ScalarConverter{
     private:
         static std::string  _input;
         static int          _type;
@@ -23,14 +24,6 @@ class Scalarconverter{
         static float        _float;
         static double       _double;
 
-
-    public:
-        Scalarconverter(std::string input);
-        Scalarconverter(const Scalarconverter &old_obj);
-        Scalarconverter &operator=(const Scalarconverter &old_obj);
-        ~Scalarconverter(void);
-
-        static void convert(void);
         static int  getType(void);
 
         static void printchar(void);
@@ -42,6 +35,15 @@ class Scalarconverter{
         static void castint(void);
         static void castdouble(void);
         static void castfloat(void);
+
+        ScalarConverter(void);
+        ScalarConverter(const ScalarConverter &old_obj);
+        ScalarConverter &operator=(const ScalarConverter &old_obj);
+        ~ScalarConverter(void);
+
+    public:
+        static void convert(std::string string);
+ 
 
 
 };

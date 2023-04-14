@@ -1,26 +1,24 @@
 #include "ScalarConverter.hpp"
 
-Scalarconverter::Scalarconverter(std::string input) {
-    _input = input;
+ScalarConverter::ScalarConverter(void) {
     std::cout << "Default constructor called" << std::endl;
 }
 
-Scalarconverter::Scalarconverter(const Scalarconverter &old_obj) {
-    _input = old_obj._input;
+ScalarConverter::ScalarConverter(const ScalarConverter &old_obj) {
     std::cout << "Copy constructor called" << std::endl;
 }
 
-Scalarconverter &Scalarconverter::operator=(const Scalarconverter &old_obj) {
-    _input = old_obj._input;
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter &old_obj) {
     return *this;
     std::cout << "Copy assignment operator called" << std::endl;
 }
 
-Scalarconverter::~Scalarconverter(void) {
+ScalarConverter::~ScalarConverter(void) {
     std::cout << "Deconstructor called" << std::endl;
 }
 
-void    Scalarconverter::convert(void) {
+void    ScalarConverter::convert(std::string string) {
+    _input = string;
     _type = getType();
     if (_type == CHAR)
         castchar();
@@ -41,59 +39,79 @@ void    Scalarconverter::convert(void) {
         std::cout << "ERROR" << std::endl;
 }
 
-int    Scalarconverter::getType(void) {
-    if (_input.size() == 1)
+int    ScalarConverter::getType(void) {
+    char *end;
+
+    if (_input.size() == 1 && isalpha(_input[0]))
         return CHAR;
-    if ()
-        return INT;
-    if ()
-        return DOUBLE;
-    if ()
-        return FLOAT;
+    if (strtol(_input.c_str(), &end, 10)) {
+        if (*end == '\0')
+            return INT;
+    }
+    if (strtod(_input.c_str(), &end)) {
+        if (*end == '\0')
+            return DOUBLE;
+    }
+    if (strtof(_input.c_str(), &end)) {
+        if (*end == 'f' && end[_input.size() + 1] == '\0')
+            return FLOAT;
+    }
     else
         return ERROR;
 }
 
-void    Scalarconverter::castchar(void) {
+void    ScalarConverter::castchar(void) {
     _char = static_cast<char>(_input[0]);
     _int = static_cast<int>(_char);
     _double = static_cast<double>(_char);
     _float = static_cast<float>(_char);
 }
 
-void    Scalarconverter::castint(void) {
-    _int = static_cast<int>(atoi(_input.c_str()));
+void    ScalarConverter::castint(void) {
+    _long = static_cast<int>(atol(_input.c_str()));
+    _int = static_cast<int>(atol(_input.c_str()));
     _double = static_cast<double>(_int);
     _float = static_cast<float>(_int);
     _char = static_cast<char>(_double);
 }
 
-void    Scalarconverter::castdouble(void) {
+void    ScalarConverter::castdouble(void) {
     _double = static_cast<double>(atof(_input.c_str()));
     _float = static_cast<float>(_double);
     _char = static_cast<char>(_double);
     _int = static_cast<int>(_double);
 }
 
-void    Scalarconverter::castfloat(void) {
+void    ScalarConverter::castfloat(void) {
     _float = static_cast<float>(strtof(_input.c_str(), NULL));
     _char = static_cast<char>(_float);
     _int = static_cast<int>(_float);
     _double = static_cast<double>(_float);
 }
 
-void    Scalarconverter::printchar(void) {
-    std::cout << "Char: " << _char << std::endl;
+void    ScalarConverter::printchar(void) {
+    if (isprint(_char) && _int >= 1 && _int <= 127)
+        std::cout << "Char: " << _char << std::endl;
+    else
+        std::cout << "impossible" << _char << std::endl;
 }
 
-void    Scalarconverter::printdouble(void) {
-    std::cout << "Double: " << _double << std::endl;
+void    ScalarConverter::printint(void) {
+    if (_int > INT_MIN && _int < INT_MAX)
+        std::cout << "Int: " << _int << std::endl;
+    else
+        std::cout << "impossible" << _int << std::endl;
 }
 
-void    Scalarconverter::printfloat(void) {
+void    ScalarConverter::printfloat(void) {
+    std::cout << std::fixed;
+    std::cout << std::setprecision(1);
     std::cout << "Float: " << _float << std::endl;
 }
 
-void    Scalarconverter::printint(void) {
-    std::cout << "Int: " << _int << std::endl;
+void    ScalarConverter::printdouble(void) {
+    std::cout << std::fixed;
+    std::cout << std::setprecision(1);
+    std::cout << "Double: " << _double << std::endl;
 }
+

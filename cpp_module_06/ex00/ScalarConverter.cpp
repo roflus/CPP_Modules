@@ -22,11 +22,11 @@ void    ScalarConverter::convert(std::string string) {
     _type = getType();
     if (_type == CHAR)
         castchar();
-    if (_type == INT)
+    else if (_type == INT)
         castint();
-    if (_type == DOUBLE)
+    else if (_type == DOUBLE)
         castdouble();
-    if (_type == FLOAT)
+    else if (_type == FLOAT)
         castfloat();
     
     if (_type != ERROR) {
@@ -42,7 +42,7 @@ void    ScalarConverter::convert(std::string string) {
 int    ScalarConverter::getType(void) {
     char *end;
 
-    if (_input.size() == 1 && isalpha(_input[0]))
+    if (_input.size() == 1 && isprint(_input[0]) && !isdigit(_input[0]))
         return CHAR;
     if (strtol(_input.c_str(), &end, 10)) {
         if (*end == '\0')
@@ -56,8 +56,7 @@ int    ScalarConverter::getType(void) {
         if (*end == 'f' && end[_input.size() + 1] == '\0')
             return FLOAT;
     }
-    else
-        return ERROR;
+    return ERROR;
 }
 
 void    ScalarConverter::castchar(void) {
@@ -68,11 +67,18 @@ void    ScalarConverter::castchar(void) {
 }
 
 void    ScalarConverter::castint(void) {
-    _long = static_cast<int>(atol(_input.c_str()));
-    _int = static_cast<int>(atol(_input.c_str()));
+    try
+    {
+        _int = std::stoi(_input);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << "Int is out of range" << std::endl;
+        exit(1) ;
+    }
     _double = static_cast<double>(_int);
     _float = static_cast<float>(_int);
-    _char = static_cast<char>(_double);
+    _char = static_cast<char>(_int);
 }
 
 void    ScalarConverter::castdouble(void) {
@@ -90,23 +96,25 @@ void    ScalarConverter::castfloat(void) {
 }
 
 void    ScalarConverter::printchar(void) {
+    std::cout << "Char: ";
     if (isprint(_char) && _int >= 1 && _int <= 127)
-        std::cout << "Char: " << _char << std::endl;
+        std::cout << _char << std::endl;
     else
-        std::cout << "impossible" << _char << std::endl;
+        std::cout << "impossible" << std::endl;
 }
 
 void    ScalarConverter::printint(void) {
+    std::cout << "Int: ";
     if (_int > INT_MIN && _int < INT_MAX)
-        std::cout << "Int: " << _int << std::endl;
+        std::cout << _int << std::endl;
     else
-        std::cout << "impossible" << _int << std::endl;
+        std::cout << "impossible" << std::endl;
 }
 
 void    ScalarConverter::printfloat(void) {
     std::cout << std::fixed;
     std::cout << std::setprecision(1);
-    std::cout << "Float: " << _float << std::endl;
+    std::cout << "Float: " << _float << "f" << std::endl;
 }
 
 void    ScalarConverter::printdouble(void) {
@@ -114,4 +122,3 @@ void    ScalarConverter::printdouble(void) {
     std::cout << std::setprecision(1);
     std::cout << "Double: " << _double << std::endl;
 }
-

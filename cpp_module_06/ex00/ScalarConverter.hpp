@@ -4,6 +4,8 @@
 #include <iostream>
 #include <cstdlib>
 #include <iomanip>
+#include <string>
+#include <cmath>
 
 enum    types{
     INT,
@@ -15,14 +17,14 @@ enum    types{
 
 class ScalarConverter{
     private:
+        ScalarConverter(void);
+        ScalarConverter(const ScalarConverter &old_obj);
+        ScalarConverter &operator=(const ScalarConverter &old_obj);
+        ~ScalarConverter(void);
+
         static std::string  _input;
         static int          _type;
 
-        static long         _long;
-        static int          _int;
-        static char         _char;
-        static float        _float;
-        static double       _double;
 
         static int  getType(void);
 
@@ -36,16 +38,15 @@ class ScalarConverter{
         static void castdouble(void);
         static void castfloat(void);
 
-        ScalarConverter(void);
-        ScalarConverter(const ScalarConverter &old_obj);
-        ScalarConverter &operator=(const ScalarConverter &old_obj);
-        ~ScalarConverter(void);
+        static int          _int;
+        static char         _char;
+        static float        _float;
+        static double       _double;
+
 
     public:
         static void convert(std::string string);
  
-
-
 };
 
 #endif

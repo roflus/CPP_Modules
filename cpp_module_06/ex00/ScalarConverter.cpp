@@ -19,6 +19,10 @@ ScalarConverter::~ScalarConverter(void) {
 
 void    ScalarConverter::convert(std::string string) {
     _input = string;
+    if ((_input.size() - 1) == '.') {
+        std::cout << "ERROR" << std::endl;
+        exit(1);
+    }
     _type = getType();
     if (_type == CHAR)
         castchar();
@@ -32,11 +36,13 @@ void    ScalarConverter::convert(std::string string) {
     if (_type != ERROR) {
         printchar();
         printint();
-        printdouble();
         printfloat();
+        printdouble();
     }
-    else
+    else {
         std::cout << "ERROR" << std::endl;
+        exit(1);
+    }
 }
 
 int    ScalarConverter::getType(void) {
@@ -53,43 +59,42 @@ int    ScalarConverter::getType(void) {
             return DOUBLE;
     }
     if (strtof(_input.c_str(), &end)) {
-        if (*end == 'f' && end[_input.size() + 1] == '\0')
+        if (*end == 'f' && strlen(end) == 1)
             return FLOAT;
     }
     return ERROR;
 }
 
 void    ScalarConverter::castchar(void) {
-    _char = static_cast<char>(_input[0]);
+    std::stringstream ss(_input);
+    ss >> _char;
     _int = static_cast<int>(_char);
     _double = static_cast<double>(_char);
     _float = static_cast<float>(_char);
 }
 
 void    ScalarConverter::castint(void) {
-    try
-    {
-        _int = std::stoi(_input);
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << "Int is out of range" << std::endl;
-        exit(1) ;
-    }
+    std::stringstream ss(_input);
+    ss >> _tempdouble;
+    std::stringstream s(_input);
+    s >> _int;
     _double = static_cast<double>(_int);
     _float = static_cast<float>(_int);
     _char = static_cast<char>(_int);
 }
 
 void    ScalarConverter::castdouble(void) {
-    _double = static_cast<double>(atof(_input.c_str()));
+    std::stringstream ss(_input);
+    ss >> _double;
     _float = static_cast<float>(_double);
     _char = static_cast<char>(_double);
     _int = static_cast<int>(_double);
 }
 
 void    ScalarConverter::castfloat(void) {
-    _float = static_cast<float>(strtof(_input.c_str(), NULL));
+    std::string string = _input.substr(0, _input.size() - 1);
+    std::stringstream ss(string);
+    ss >> _float;
     _char = static_cast<char>(_float);
     _int = static_cast<int>(_float);
     _double = static_cast<double>(_float);
@@ -105,10 +110,10 @@ void    ScalarConverter::printchar(void) {
 
 void    ScalarConverter::printint(void) {
     std::cout << "Int: ";
-    if (_int > INT_MIN && _int < INT_MAX)
-        std::cout << _int << std::endl;
-    else
+    if (_tempdouble < std::numeric_limits<int>::min() || _tempdouble > std::numeric_limits<int>::max())
         std::cout << "impossible" << std::endl;
+    else
+        std::cout << _int << std::endl;
 }
 
 void    ScalarConverter::printfloat(void) {

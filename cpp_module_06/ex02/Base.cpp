@@ -5,7 +5,7 @@
 Base::~Base(void) {}
 
 Base    *Base::generate(void) {
-    srand((unsigned) time(NULL));
+    std::srand((unsigned) std::time(NULL));
     int random = rand() % 3;
     if (random == 0) {
         return (new A);
@@ -30,6 +30,7 @@ void    Base::identify(Base *p) {
 }
 
 void    Base::identify(Base &p) {
+    int i = 0;
     try
     {
         A &ref = dynamic_cast<A&>(p);
@@ -37,24 +38,22 @@ void    Base::identify(Base &p) {
     }
     catch(const std::exception& e)
     {
-        // std::cerr << e.what() << '\n';
-    }
-    try
-    {
-        B &ref = (dynamic_cast<B&>(p));
-        std::cout << "Type: B" << std::endl;
-    }
-    catch(const std::exception& e)
-    {
-        // std::cerr << e.what() << '\n';
-    }
-    try
-    {
-        C &ref = dynamic_cast<C&>(p);
-        std::cout << "Type: C" << std::endl;
-    }
-    catch(const std::exception& e)
-    {
-        // std::cerr << e.what() << '\n';
+        try
+        {
+            B &ref = (dynamic_cast<B&>(p));
+            std::cout << "Type: B" << std::endl;
+        }
+        catch(const std::exception& e)
+        {
+            try
+            {
+                C &ref = dynamic_cast<C&>(p);
+                std::cout << "Type: C" << std::endl;
+            }
+            catch(const std::exception& e)
+            {
+                std::cout << "No type" << std::endl;  
+            }
+        }
     }
 }

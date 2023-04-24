@@ -6,7 +6,7 @@
 class PresidentialPardonForm : public AForm
 {
 private:
-    const std::string &target; 
+    const std::string &_target; 
 public:
     PresidentialPardonForm(const std::string &target);
     PresidentialPardonForm(const PresidentialPardonForm &old_obj);

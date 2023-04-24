@@ -6,11 +6,13 @@ Serializer::Serializer(void) {
 
 Serializer::Serializer(const Serializer &old_obj) {
     std::cout << "Copy constructor called" << std::endl;
+    (void)old_obj;
 }
 
 Serializer &Serializer::operator=(const Serializer &old_obj) {
-    return *this;
     std::cout << "Copy assignment operator called" << std::endl;
+    (void)old_obj;
+    return *this;
 }
 
 Serializer::~Serializer(void) {

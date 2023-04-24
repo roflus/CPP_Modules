@@ -21,6 +21,7 @@ Form::Form(const Form &old_obj)
 Form &Form::operator=(const Form &old_obj)
 {
     std::cout << "copy asignmend operator called" << std::endl;
+    _isSigned = old_obj.getSigned();
     return *this;
 }
 

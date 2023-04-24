@@ -3,19 +3,20 @@
 #include <cstdlib>
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string &target)
-    : AForm("RobotomyRequestForm", 72, 45), target(target)
+    : AForm("RobotomyRequestForm", 72, 45), _target(target)
     {
     std::cout << "RobotomyRequestForm default constructor called" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &old_obj)
-    : AForm(old_obj), target(old_obj.target)
+    : AForm(old_obj), _target(old_obj._target)
     {
     std::cout << "RobotomyRequestForm copy constructor called" << std::endl;
 }
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &old_obj){
     std::cout << "RobotomyRequestForm copy assignment operator called" << std::endl;
+    (void)old_obj;
     return *this;
 }
 
@@ -31,7 +32,7 @@ void    RobotomyRequestForm::execute(Bureaucrat const &executor) const{
     std::srand((unsigned) std::time(NULL));
     std::cout << "Drill... drill...." << std::endl;
     if (rand() % 2)
-        std::cout << target << " has been robotomized successfuly!" << std::endl;
+        std::cout << _target << " has been robotomized successfuly!" << std::endl;
     else 
-        std::cout << target << " robotomy failed!" << std::endl;
+        std::cout << _target << " robotomy failed!" << std::endl;
 }

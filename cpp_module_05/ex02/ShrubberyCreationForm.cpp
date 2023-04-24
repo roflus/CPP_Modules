@@ -3,19 +3,20 @@
 #include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target)
-    : AForm("ShrubberyCreationForm", 145, 137), target(target)
+    : AForm("ShrubberyCreationForm", 145, 137), _target(target)
     {
     std::cout << "ShrubberyCreationForm default constructor called" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &old_obj)
-    : AForm(old_obj), target(old_obj.target)
+    : AForm(old_obj), _target(old_obj._target)
     {
     std::cout << "ShrubberyCreationForm copy constructor called" << std::endl;
 }
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &old_obj){
     std::cout << "ShrubberyCreationForm copy assignment operator called" << std::endl;
+    (void)old_obj;
     return *this;
 }
 
@@ -28,7 +29,7 @@ void    ShrubberyCreationForm::execute(Bureaucrat const &executor) const{
         throw AForm::GradeTooLowException();
     if (this->getSigned() == false)
         throw AForm::NotSignedException();
-    std::ofstream   file(this->target + "_shrubbery");
+    std::ofstream   file(this->_target + "_shrubbery");
     file << "               ,@@@@@@@,                " << std::endl;
     file << "       ,,,.   ,@@@@@@/@@,  .oo8888o.    " << std::endl;
     file << "    ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o   " << std::endl;

@@ -64,7 +64,7 @@ public:
 
     unsigned int size(void)
     {
-        return (sizeof(*_arr) / sizeof(_arr[0]));
+        return _size;
     }
 };
 

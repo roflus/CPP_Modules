@@ -30,27 +30,26 @@ void    Base::identify(Base *p) {
 }
 
 void    Base::identify(Base &p) {
-    int i = 0;
     try
     {
-        A &ref = dynamic_cast<A&>(p);
+        (void)dynamic_cast<A&>(p);
         std::cout << "Type: A" << std::endl;
     }
-    catch(const std::exception& e)
+    catch(std::bad_cast)
     {
         try
         {
-            B &ref = (dynamic_cast<B&>(p));
+            (void)dynamic_cast<B&>(p);
             std::cout << "Type: B" << std::endl;
         }
-        catch(const std::exception& e)
+        catch(std::bad_cast)
         {
             try
             {
-                C &ref = dynamic_cast<C&>(p);
+                (void)dynamic_cast<C&>(p);
                 std::cout << "Type: C" << std::endl;
             }
-            catch(const std::exception& e)
+            catch(std::bad_cast)
             {
                 std::cout << "No type" << std::endl;  
             }

@@ -6,7 +6,7 @@
 class RobotomyRequestForm : public AForm
 {
 private:
-    const std::string &target;
+    const std::string &_target;
 public:
     RobotomyRequestForm(const std::string &target);
     RobotomyRequestForm(const RobotomyRequestForm &old_obj);

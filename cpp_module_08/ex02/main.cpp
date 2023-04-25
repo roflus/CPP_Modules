@@ -50,5 +50,29 @@ int main()
         ++lit;
     }
     std::list<int> l(lstack);
+
+    std::cout << "---------Vector Test---------" << std::endl;
+    std::vector<int> vstack;
+    vstack.push_back(5);
+    vstack.push_back(17);
+    std::cout << "Top: " << vstack.back() << std::endl;
+    vstack.pop_back();
+    std::cout << "Size: " << vstack.size() << std::endl;
+    vstack.push_back(3);
+    vstack.push_back(5);
+    vstack.push_back(737);
+    //[...]
+    vstack.push_back(0);
+    std::vector<int>::iterator vlit = vstack.begin();
+    std::vector<int>::iterator vlite = vstack.end();
+    ++vlit;
+    --vlit;
+    while (vlit != vlite)
+    {
+        std::cout << "List: ";
+        std::cout << *vlit << std::endl;
+        ++vlit;
+    }
+    std::vector<int> v(vstack);
     return 0;
 }

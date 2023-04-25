@@ -1,13 +1,13 @@
-NAME = MA
+NAME = btc
 FLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = ./main.cpp
+SRC = ./main.cpp ./BitcoinExchange.cpp
 OBJ = $(SRC:%.cpp=%.o)
 
 all: $(NAME)
 $(NAME): $(OBJ)
 	c++ $(OBJ) -o $(NAME)
 
-%.o: %.cpp %.hpp 
+%.o: %.cpp %.hpp
 	c++ $(FLAGS) -c $< -o $@
 
 clean:

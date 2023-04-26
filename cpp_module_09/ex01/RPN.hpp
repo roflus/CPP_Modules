@@ -15,9 +15,6 @@ public:
     ~RPN();
 
     std::string _input;
-    std::stack<int> _stack;
-    int a;
-    int b;
 
     int addNumber(int first, int second);
     int isOperator(char c);

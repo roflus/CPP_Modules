@@ -1,13 +1,20 @@
 #include "PmergeMe.hpp"
 
-PmergeMe::PmergeMe(){}
+PmergeMe::PmergeMe(){
+    _vectorDiff = 0;
+    _dequeDiff = 0;
+}
 
 PmergeMe::PmergeMe(const PmergeMe &old_obj) {
-    (void)old_obj;
+    _input = old_obj._input;
+    _vectorDiff = old_obj._vectorDiff;
+    _dequeDiff = old_obj._dequeDiff;
 }
 
 PmergeMe &PmergeMe::operator=(const PmergeMe &old_obj) {
-    (void)old_obj;
+    _input = old_obj._input;
+    _vectorDiff = old_obj._vectorDiff;
+    _dequeDiff = old_obj._dequeDiff;
     return *this;
 }
 
@@ -22,8 +29,8 @@ void PmergeMe::printer(std::vector<int> &v, std::deque<int> &d)
         std::cout << *vit << ' ';
     }
     std::cout << std::endl;
-    std::cout << "Time to process a range of " << v.size() << " elements with std::vector : " << _vector_diff << std::endl;
-    std::cout << "Time to process a range of " << d.size() << " elements with std::list : "  << std::endl;
+    std::cout << "Time to process a range of " << v.size() << " elements with std::vector : " << _vectorDiff << std::endl;
+    std::cout << "Time to process a range of " << d.size() << " elements with std::deque : "  << _dequeDiff << std::endl;
 }
 
 int     PmergeMe::argumentCheck(std::string string) {
@@ -95,6 +102,8 @@ void    PmergeMe::mergeVector(std::vector<int> &v, int start, int end, int q){
 }
 
 void    PmergeMe::sortVector(std::vector<int> &v, int start, int end) {
+    timeval vstart, vend;
+    gettimeofday(&vstart, NULL);
     if (end - start > 5) {
         int q = (start + end) / 2;
         sortVector(v, start, q);
@@ -103,7 +112,8 @@ void    PmergeMe::sortVector(std::vector<int> &v, int start, int end) {
     }
     else
         insertionVector(v, start, end);
-
+    gettimeofday(&vend, NULL);
+    _vectorDiff = vend.tv_usec - vstart.tv_usec;
 }
 
 void    PmergeMe::insertionDeque(std::deque<int> &d, int start, int end) {
@@ -147,6 +157,8 @@ void    PmergeMe::mergeDeque(std::deque<int> &d, int start, int end, int q) {
     }
 }
 void    PmergeMe::sortDeque(std::deque<int> &d, int start, int end) {
+    timeval dstart, dend;
+    gettimeofday(&dstart, NULL);
     if (end - start > 5) {
         int q = (start + end) / 2;
         sortDeque(d, start, q);
@@ -155,58 +167,6 @@ void    PmergeMe::sortDeque(std::deque<int> &d, int start, int end) {
     }
     else
         insertionDeque(d, start, end);
+    gettimeofday(&dend, NULL);
+    _dequeDiff = dend.tv_usec - dstart.tv_usec;
 }
-
-
-// void    PmergeMe::insertionList(std::list<int> &l, int start, int end) {
-
-// }
-
-// void    PmergeMe::mergeList(std::list<int> &l, int start, int end, int q) {
-//     int size1 = q - start + 1;
-//     int size2 = end - q;
-//     std::list<int> lleft, lright;
-//     for (int i = start; i < q + 1; i++) {
-//         lleft.push_back(l.front());
-//         l.pop_front();
-//     }
-//     for (int i = q + 1; i < end + 1; i++) {
-//         lleft.push_back(l.front());
-//         l.pop_front();
-//     }
-//     int rindex = 0, lindex = 0;
-//     for (int i = start; i < end - start + 1; i++) {
-//         if (rindex == size2) {
-//             l.push_back(lleft.front());
-//             lleft.pop_front();
-//             lindex++;
-//         }
-//         else if (lindex == size1) {
-//             l.push_back(lright.front());
-//             lright.pop_front();
-//             rindex++;
-//         }
-//         else if (lright.front() > lleft.front()) {
-//             l.push_back(lleft.front());
-//             lleft.pop_front();
-//             lindex++;
-//         }
-//         else {
-//             l.push_back(lright.front());
-//             lright.pop_front();
-//             rindex++;
-//         }
-//     }
-    
-// }
-
-// void    PmergeMe::sortList(std::list<int> &l, int start, int end) {
-//     if (end - start > _groupsize) {
-//         int q = (start + end) / 2;
-//         sortList(l, start, q);
-//         sortList(l, q + 1, end);
-//         mergeList(l, start, end, q);
-//     }
-//     else
-//         insertionList(l, start, end);
-// }

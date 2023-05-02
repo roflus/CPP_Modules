@@ -5,6 +5,7 @@
 #include <vector>
 #include <deque>
 #include <ctime>
+#include <sys/time.h>
 #include <algorithm>
 // Vector and list
 class PmergeMe
@@ -17,11 +18,9 @@ public:
     PmergeMe &operator=(const PmergeMe &old_obj);
     ~PmergeMe();
 
-    int _groupsize;
     std::string _input;
-    time_t _vstart, _vend;
-    double _vector_diff;
-    double _list_diff;
+    long _vectorDiff;
+    long _dequeDiff;
 
     void    printer(std::vector<int> &v, std::deque<int> &d);
     int     argumentCheck(std::string string);

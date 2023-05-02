@@ -23,9 +23,11 @@ int main(int argc, char **argv)
     PmergeMe pm;
     std::vector<int> vector;
     std::deque<int> deque;
-    std::clock_t _start = std::clock();
+    timeval start, end;
+    long Diff;
     unsigned long   temp = 0;
     int             value = 0;
+    gettimeofday(&start, NULL);
     if (!pm.checkDuplicates(argv, argc))
         return (ft_error("Cannot have duplicates"));
     for(int i = 1; argc != 1; i++, argc--) {
@@ -42,12 +44,11 @@ int main(int argc, char **argv)
         deque.push_back(temp);
         vector.push_back(temp);
     }
-    std::clock_t _end = std::clock();
-    pm._vector_diff = 1000 * difftime(_end, _start) / CLOCKS_PER_SEC;
-    printum(vector, deque);
+    gettimeofday(&end, NULL);
+    Diff = end.tv_usec - start.tv_usec; 
     pm.sortVector(vector, 0, vector.size() - 1);
     pm.sortDeque(deque, 0, deque.size() - 1);
-    std::cout << "na sort" << std::endl;
-    printum(vector, deque);
+    pm._vectorDiff += Diff;
+    pm._dequeDiff += Diff;
     pm.printer(vector, deque);
 }

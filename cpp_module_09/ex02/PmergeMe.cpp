@@ -67,14 +67,14 @@ void    PmergeMe::insertionVector(std::vector<int> &v, int start, int end) {
 void    PmergeMe::mergeVector(std::vector<int> &v, int start, int end, int q){
     int size1 = q - start + 1;
     int size2 = end - q;
-    std::vector<int> vleft, vright;
-    for (int i = start; i < q + 1; i++)
-        vleft[i] = v[i];
-    for (int i = q + 1; i < end + 1; i++)
-        vright[i] = v[i];
+    std::vector<int> vleft(size1), vright(size2);
+    for (int i = 0; i < size1; i++)
+        vleft[i] = v[start + i];
+    for (int i = 0; i < size2; i++)
+        vright[i] = v[q + i + 1];
     int rindex = 0;
     int lindex = 0;
-    for (int i = start; i < end - start + 1; i++) {
+    for (int i = start; i <= end; i++) {
         if (rindex == size2) {
             v[i] = vleft[lindex];
             lindex++;
@@ -95,7 +95,7 @@ void    PmergeMe::mergeVector(std::vector<int> &v, int start, int end, int q){
 }
 
 void    PmergeMe::sortVector(std::vector<int> &v, int start, int end) {
-    if (end - start > _groupsize) {
+    if (end - start > 5) {
         int q = (start + end) / 2;
         sortVector(v, start, q);
         sortVector(v, q + 1, end);
@@ -120,11 +120,11 @@ void    PmergeMe::insertionDeque(std::deque<int> &d, int start, int end) {
 void    PmergeMe::mergeDeque(std::deque<int> &d, int start, int end, int q) {
     int size1 = q - start + 1;
     int size2 = end - q;
-    std::deque<int> dleft, dright;
-    for (int i = start; i < q + 1; i++)
-        dleft[i] = d[i];
-    for (int i = q + 1; i < end + 1; i++)
-        dright[i] = d[i];
+    std::deque<int> dleft(size1), dright(size2);
+    for (int i = 0; i < size1; i++)
+        dleft[i] = d[start + i];
+    for (int i = 0; i < size2; i++)
+        dright[i] = d[q + i + 1];
     int rindex = 0;
     int lindex = 0;
     for (int i = start; i < end - start + 1; i++) {
@@ -147,7 +147,7 @@ void    PmergeMe::mergeDeque(std::deque<int> &d, int start, int end, int q) {
     }
 }
 void    PmergeMe::sortDeque(std::deque<int> &d, int start, int end) {
-    if (end - start > _groupsize) {
+    if (end - start > 5) {
         int q = (start + end) / 2;
         sortDeque(d, start, q);
         sortDeque(d, q + 1, end);

@@ -15,7 +15,6 @@ public:
     ~BitcoinExchange();
 
     std::string _infile;
-    std::map<std::string, float> _map;
     std::string _key;
     float _value;
 };

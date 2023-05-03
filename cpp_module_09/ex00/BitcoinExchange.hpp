@@ -4,6 +4,7 @@
 #include <iostream>
 #include <map>
 #include <fstream>
+#include <sstream>
 // Map of multimap or Set
 class BitcoinExchange
 {
@@ -13,6 +14,9 @@ public:
     BitcoinExchange(const BitcoinExchange &old_obj);
     BitcoinExchange &operator=(const BitcoinExchange &old_obj);
     ~BitcoinExchange();
+
+    int getData(std::map<std::string, float> &_map);
+    int getInput();
 
     std::string _infile;
     std::string _key;

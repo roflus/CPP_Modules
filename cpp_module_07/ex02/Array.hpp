@@ -19,13 +19,14 @@ public:
     }
     Array(unsigned int n)
     {
-        int *a = new int();
+        T *temp = new T();
         _size = n;
         _arr = new T[_size];
-        for (unsigned int i; i < _size; i++)
+        for (unsigned int i = 0; i < _size; i++)
         {
-            _arr[i] = *a;
+            _arr[i] = *temp;
         }
+        delete temp;
     }
     Array(const Array &old_obj)
     {
@@ -37,7 +38,7 @@ public:
         std::cout << "Copy assignment operator called" << std::endl;
         _size = old_obj._size;
         _arr = new T[_size];
-        for (unsigned int i; i < _size; i++)
+        for (unsigned int i = 0; i < _size; i++)
         {
             _arr[i] = new int(old_obj._arr[i]);
         }

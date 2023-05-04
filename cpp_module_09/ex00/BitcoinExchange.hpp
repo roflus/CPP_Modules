@@ -15,8 +15,11 @@ public:
     BitcoinExchange &operator=(const BitcoinExchange &old_obj);
     ~BitcoinExchange();
 
-    int getData(std::map<std::string, float> &_map);
-    int getInput();
+    int     getData(std::map<std::string, float> &_data);
+    float   getValue(std::map<std::string, float> &_data, std::string key);
+    int     checkDate(std::string date);
+    int     checkValue(std::string value);
+    int     getInput(std::map<std::string, float> &_data);
 
     std::string _infile;
     std::string _key;

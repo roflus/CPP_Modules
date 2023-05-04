@@ -9,6 +9,7 @@
 class BitcoinExchange
 {
 private:
+    std::string _infile;
 public:
     BitcoinExchange(std::string infile);
     BitcoinExchange(const BitcoinExchange &old_obj);
@@ -16,14 +17,11 @@ public:
     ~BitcoinExchange();
 
     int     getData(std::map<std::string, float> &_data);
-    float   getValue(std::map<std::string, float> &_data, std::string key);
-    int     checkDate(std::string date);
-    int     checkValue(std::string value);
+    float   getValue(std::map<std::string, float> &_data, const std::string &key);
+    int     checkDate(const std::string &date);
+    int     checkValue(const std::string &value);
     int     getInput(std::map<std::string, float> &_data);
 
-    std::string _infile;
-    std::string _key;
-    float _value;
 };
 
 #endif

@@ -34,10 +34,17 @@ int BitcoinExchange::getData(std::map<std::string, float> &_data) {
     return 1;
 }
 
-float getValue(std::map<std::string, float> &_data, std::string key) {
-
+float BitcoinExchange::getValue(std::map<std::string, float> &_data, const std::string &key) {
+    std::map<std::string, float>::iterator it;
+    for(it = _data.begin(); it != _data.end(); it++) {
+        if (key.compare(it->first) == 0) {
+            return (it->second);
+        }
+        if (key.compare(it->first) < 0)
+            return (it->second);
+    }
+    return (it->second);
 }
-
 
 
 int BitcoinExchange::getInput(std::map<std::string, float> &_data) {
@@ -50,30 +57,39 @@ int BitcoinExchange::getInput(std::map<std::string, float> &_data) {
     std::string string;
     getline(file, string);
     std::string date;
-    size_t      found = 0;
+    size_t      found;
     std::string value;
-    float       dataValue;
-    int         inputValue;
+    std::stringstream ss;
+    std::map<std::string, float>::iterator it;
+    float       dataValue = 0;
+    float       inputValue;
     while (getline(file, string)) {
         found = string.find(" | ");
         date = string.substr(0, found);
-        if (!checkDate(date))
+        if (!checkDate(date)) {
             std::cout << "Error: bad input => " << date << std::endl;
+            continue;
+        }
         if (found != std::string::npos) {
             value = string.substr(found + 3, string.size());
-            if (checkValue(value) == 0)
+            if (checkValue(value) == 0) {
                 std::cout << "Error: not a positive number." << std::endl;
-            if (checkValue(value) == -1)
+                continue;
+            }
+            if (checkValue(value) == -1) {
                 std::cout << "Error: too large a number." << std::endl;
+                continue;
+            }
         }
         dataValue = getValue(_data, date);
+        inputValue = atof(value.c_str());
         std::cout << date << " => " << inputValue << " = " << dataValue * inputValue << std::endl;
     }
     file.close();
     return 1;
 }
 
-int BitcoinExchange::checkValue(std::string value) {
+int BitcoinExchange::checkValue(const std::string &value) {
     if (value[0] == '-')
         return 0;
     if (value.size() > 9)
@@ -87,7 +103,7 @@ int BitcoinExchange::checkValue(std::string value) {
     return 1;
 }
 
-int BitcoinExchange::checkDate(std::string date) {
+int BitcoinExchange::checkDate(const std::string &date) {
     if (date.size() > 10)
         return 0;
     struct tm tm;

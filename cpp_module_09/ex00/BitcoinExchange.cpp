@@ -57,11 +57,9 @@ int BitcoinExchange::getInput(std::map<std::string, float> &_data) {
     std::string string;
     getline(file, string);
     std::string date;
-    size_t      found;
     std::string value;
-    std::stringstream ss;
-    std::map<std::string, float>::iterator it;
-    float       dataValue = 0;
+    size_t      found;
+    float       dataValue;
     float       inputValue;
     while (getline(file, string)) {
         found = string.find(" | ");
@@ -72,12 +70,20 @@ int BitcoinExchange::getInput(std::map<std::string, float> &_data) {
         }
         if (found != std::string::npos) {
             value = string.substr(found + 3, string.size());
+            if (value.size()  == 0) {
+                std::cout << "Error: No value found." << std::endl;
+                continue;
+            }
             if (checkValue(value) == 0) {
                 std::cout << "Error: not a positive number." << std::endl;
                 continue;
             }
             if (checkValue(value) == -1) {
                 std::cout << "Error: too large a number." << std::endl;
+                continue;
+            }
+            if (checkValue(value) == -2) {
+                std::cout << "Error: value is not a valid integer." << std::endl;
                 continue;
             }
         }
@@ -94,11 +100,15 @@ int BitcoinExchange::checkValue(const std::string &value) {
         return 0;
     if (value.size() > 9)
         return -1;
+    for (size_t i = 0; i < value.size(); i++){
+        if (!isdigit(value[i]))
+            return -2;
+    }
     std::stringstream val;
     float num;
     val << value;
     val >> num;
-    if (num > INT_MAX)
+    if (num > 1000)
         return -1;
     return 1;
 }

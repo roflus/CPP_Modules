@@ -21,5 +21,5 @@ int main(int argc, char **argv)
         return 1;
     if (!be.getInput(_data))
         return 1;
-    return 1;
+    return EXIT_SUCCESS;
 }

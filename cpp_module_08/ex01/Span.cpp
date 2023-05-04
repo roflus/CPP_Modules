@@ -52,11 +52,10 @@ int     Span::shortestSpan() {
     return diff;
 }
 
-void    Span::addMultiNumber() {
+void    Span::addMultiNumber(int amount) {
     std::cout << "Adding multiple numbers" << std::endl;
     std::srand((unsigned) std::time(NULL));
-    while (_numbers.size() < _N) {
-        _numbers.insert(_numbers.end(), std::rand() % 100);
+    for (int i = 0; i < amount; i++) {
+        addNumber(std::rand() % 100);
     }
-    std::cout << "Vector is full" << std::endl;
 }

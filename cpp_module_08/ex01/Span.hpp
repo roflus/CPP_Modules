@@ -19,7 +19,7 @@ public:
     int     shortestSpan();
     int     longestSpan();
 
-    void    addMultiNumber();
+    void    addMultiNumber(int amount);
 
     class ClassIsFull : public std::exception{
         public:

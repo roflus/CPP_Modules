@@ -35,10 +35,9 @@ int main() {
     }
 
     Span span = Span(5);
-    span.addMultiNumber();
     try
     {
-        span.addNumber(6);
+        span.addMultiNumber(8);
     }
     catch(const std::exception& e)
     {

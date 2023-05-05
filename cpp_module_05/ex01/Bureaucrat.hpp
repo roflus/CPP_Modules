@@ -9,8 +9,8 @@ class Bureaucrat
 {
 
 private:
-    const std::string _name;
-    int _grade;
+    const std::string   _name;
+    int                 _grade;
 
 public:
     Bureaucrat(const std::string &namef, int grade);
@@ -29,13 +29,13 @@ public:
     class GradeTooHighException : public std::exception
     {
     public:
-        const char *what() const throw() { return "Grade is to high"; }
+        const char *what() const throw();
     };
 
     class GradeTooLowException : public std::exception
     {
     public:
-        const char *what() const throw() { return "Grade is to low"; }
+        const char *what() const throw();
     };
 };
 

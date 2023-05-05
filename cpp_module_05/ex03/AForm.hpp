@@ -8,13 +8,13 @@ class Bureaucrat;
 class AForm
 {
 private:
-    const std::string name;
-    bool      isSigned;
-    const int gradeSign;
-    const int gradeEx;
+    const std::string   _name;
+    bool                _isSigned;
+    const int           _gradeSign;
+    const int           _gradeEx;
 public:
     AForm(void);
-    AForm(const std::string name, const int gradeSing, const int gradeEx);
+    AForm(const std::string name, const int gradeSign, const int gradeEx);
     AForm(const AForm &old_obj);
     AForm &operator=(const AForm &old_obj);
     virtual ~AForm(void);
@@ -30,17 +30,17 @@ public:
 
     class GradeTooHighException : public std::exception{
         public:
-            const char *what() const throw() {return "Grade to high!";}
+            const char *what() const throw();
     };
 
     class GradeTooLowException : public std::exception{
         public:
-            const char *what() const throw () {return "Grade to low!";}
+            const char *what() const throw ();
     };
 
     class NotSignedException: public std::exception{
         public:
-            const char *what() const throw () {return "Form is not signed!";}
+            const char *what() const throw ();
     };
 };
 

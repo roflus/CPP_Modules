@@ -39,6 +39,6 @@ void    ShrubberyCreationForm::execute(Bureaucrat const &executor) const{
     file << "   `&%\\ ` /%&'    |.|        \\ '|8'     " << std::endl;
     file << "       |o|        | |         | |       " << std::endl;
     file << "       |.|        | |         | |       " << std::endl;
-    file << "    \\/ ._\\//_/__/  ,\\_//__\\/.  \\_//__ " << std::endl;
+    file << "    \\/ ._\\//_/__/  ,\\_//__\\/.  \\_//__ ";
     file.close();
 }

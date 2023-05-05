@@ -15,6 +15,7 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &old
 
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &old_obj){
     std::cout << "PresidentialPardonForm copy assignment operator called" << std::endl;
+    (void)old_obj;
     return *this;
 }
 

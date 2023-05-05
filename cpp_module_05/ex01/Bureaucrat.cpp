@@ -13,7 +13,6 @@ Bureaucrat::Bureaucrat(const std::string &namef, int grade) : _name(namef), _gra
 Bureaucrat::Bureaucrat(const Bureaucrat &old_obj) : _name(old_obj.getName()), _grade(old_obj.getGrade())
 {
     std::cout << "Copy constructor called" << std::endl;
-    // *this = old_obj;
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &old_obj)
@@ -57,12 +56,20 @@ void Bureaucrat::signForm(Form &form)
     try
     {
         form.beSigned(*this);
-        std::cout << this->getName() << " signed Form: " << form.getName() << std::endl;
+        std::cout << this->getName() << " signed " << form.getName() << std::endl;
     }
     catch (Form::GradeTooLowException &ex)
     {
         std::cout << this->getName() << " couldn't sign " << form.getName() << " because " << ex.what() << std::endl;
     }
+}
+
+const char *Bureaucrat::GradeTooLowException::what(void) const throw () {
+    return ("Grade is to low");
+}
+
+const char *Bureaucrat::GradeTooHighException::what(void) const throw() {
+    return ("Grade is to high");
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat)

@@ -7,10 +7,12 @@ Intern::Intern(void) {
 
 Intern::Intern(const Intern &old_obj){
     std::cout << "Copy constructor called" << std::endl;
+    (void)old_obj;
 }
 
 Intern &Intern::operator=(const Intern &old_obj){
     std::cout << "Copy assignment operator called" << std::endl;
+    (void)old_obj;
     return *this;
 }
 
@@ -20,7 +22,7 @@ Intern::~Intern(void){
 
 AForm *Intern::makeForm(std::string name, std::string target){
 
-    AForm *form;
+    AForm *form = NULL;
     std::string forms[3] = {
         "robotomy request",
         "shrubbery creation",

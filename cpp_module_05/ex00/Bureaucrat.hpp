@@ -6,8 +6,8 @@
 class Bureaucrat{
 
     private:
-        const std::string _name;
-        int _grade;
+        const std::string   _name;
+        int                 _grade;
     public:
         Bureaucrat(const std::string &namef, int grade);
         Bureaucrat(const Bureaucrat &old_obj);
@@ -15,19 +15,19 @@ class Bureaucrat{
         ~Bureaucrat(void);
 
         std::string getName(void) const;
-        int getGrade(void) const;
+        int         getGrade(void) const;
 
         void    incrementGrade(void);
         void    decrementGrade(void);
 
         class GradeTooHighException : public std::exception{
             public:
-                const char *what() const throw () { return "Grade is to high";}
+                const char *what() const throw ();
         };
 
         class GradeTooLowException : public  std::exception{
             public:
-                const char *what() const throw () { return "Grade is to low";}
+                const char *what() const throw ();
         };
 
 };

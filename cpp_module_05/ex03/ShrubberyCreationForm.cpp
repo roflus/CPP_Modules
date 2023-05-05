@@ -16,6 +16,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &old_ob
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &old_obj){
     std::cout << "ShrubberyCreationForm copy assignment operator called" << std::endl;
+    (void)old_obj;
     return *this;
 }
 
@@ -38,6 +39,6 @@ void    ShrubberyCreationForm::execute(Bureaucrat const &executor) const{
     file << "   `&%\\ ` /%&'    |.|        \\ '|8'     " << std::endl;
     file << "       |o|        | |         | |       " << std::endl;
     file << "       |.|        | |         | |       " << std::endl;
-    file << "    \\/ ._\\//_/__/  ,\\_//__\\/.  \\_//__ " << std::endl;
+    file << "    \\/ ._\\//_/__/  ,\\_//__\\/.  \\_//__ ";
     file.close();
 }

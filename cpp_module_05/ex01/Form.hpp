@@ -8,10 +8,10 @@ class Bureaucrat;
 class Form
 {
 private:
-    const std::string _name;
-    bool _isSigned;
-    const int _gradeSign;
-    const int _gradeEx;
+    const std::string   _name;
+    bool                _isSigned;
+    const int           _gradeSign;
+    const int           _gradeEx;
 
 public:
     // Form(void);
@@ -30,13 +30,13 @@ public:
     class GradeTooHighException : public std::exception
     {
     public:
-        const char *what() const throw() { return "Grade to high!"; }
+        const char *what() const throw();
     };
 
     class GradeTooLowException : public std::exception
     {
     public:
-        const char *what() const throw() { return "Grade to low!"; }
+        const char *what() const throw();
     };
 };
 

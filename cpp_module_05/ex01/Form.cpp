@@ -58,9 +58,17 @@ void Form::beSigned(Bureaucrat &bureaucrat)
         throw Form::GradeTooLowException();
 }
 
+const char *Form::GradeTooHighException::what(void) const throw () {
+    return ("Grade to high!");
+}
+
+const char *Form::GradeTooLowException::what(void) const throw () {
+    return ("Grade to low!");
+}
+
 std::ostream &operator<<(std::ostream &out, const Form &form)
 {
     out << "Form: " << form.getName() << ", gradeSign: " << form.getGradeSign()
-        << ", gradeEx: " << form.getGradeEx() << ", isSigned: " << form.getSigned() << std::endl;
+        << ", gradeEx: " << form.getGradeEx() << ", isSigned: " << form.getSigned();
     return out;
 }

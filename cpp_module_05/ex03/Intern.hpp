@@ -9,8 +9,6 @@
 
 class Intern
 {
-    private:
-
     public:
         Intern(void);
         Intern(const Intern &old_obj);

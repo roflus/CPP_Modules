@@ -16,6 +16,7 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &old_obj)
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &old_obj){
     std::cout << "RobotomyRequestForm copy assignment operator called" << std::endl;
+    (void)old_obj;
     return *this;
 }
 

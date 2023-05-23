@@ -7,6 +7,7 @@
 #include <string>
 #include <sstream>
 #include <limits>
+#include <math.h>
 
 enum    types{
     INT,

@@ -12,7 +12,7 @@ bool ScalarConverter::_imp = false;
 
 int main(int argc, char **argv) {
     if (argc != 2) {
-        std::cout << "Error: ./covert takes only 1 argument" << std::endl;
+        std::cout << "Error: Program takes only 1 argument" << std::endl;
         return 1;
     }
     std::string string = argv[1];

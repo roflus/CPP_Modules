@@ -44,10 +44,7 @@ class ScalarConverter{
         static char         _char;
         static float        _float;
         static double       _double;
-
         static double       _tempdouble;
-        static bool         _imp;
-
 
     public:
         static void convert(std::string string);

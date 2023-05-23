@@ -22,26 +22,14 @@ ScalarConverter::~ScalarConverter(void) {
 void    ScalarConverter::convert(std::string string) {
     _input = string;
     _type = getType();
-    if (_type == CHAR) {
-        std::cout << "Char" << std::endl;
-
+    if (_type == CHAR)
         castchar();
-    }
-    else if (_type == INT) {
-        std::cout << "Int" << std::endl;
-
+    else if (_type == INT)
         castint();
-    }
-    else if (_type == DOUBLE) {
-        std::cout << "Double" << std::endl;
-
+    else if (_type == DOUBLE)
         castdouble();
-    }
-    else if (_type == FLOAT) {
-        std::cout << "Float" << std::endl;
+    else if (_type == FLOAT)
         castfloat();
-    }
-    
     if (_type != ERROR) {
         printchar();
         printint();

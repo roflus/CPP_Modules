@@ -7,8 +7,6 @@ int ScalarConverter::_int = 0;
 float ScalarConverter::_float = 0;
 double ScalarConverter::_double = 0;
 double ScalarConverter::_tempdouble = 0;
-bool ScalarConverter::_imp = false;
-
 
 int main(int argc, char **argv) {
     if (argc != 2) {

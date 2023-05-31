@@ -33,12 +33,6 @@ public:
     void    insertionDeque(std::deque<int> &d, int start, int q);
     void    mergeDeque(std::deque<int> &d, int start, int end, int q);
     void    sortDeque(std::deque<int> &d, int start, int end);
-
-    // void    insertionList(std::list<int> &l, int start, int q);
-    // void    mergeList(std::list<int> &l, int start, int end, int q);
-    // void    sortList(std::list<int> &l, int start, int end);
-
-
 };
 
 #endif

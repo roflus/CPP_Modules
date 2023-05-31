@@ -20,7 +20,7 @@ void    changeString(T &x) {
 }
 
 template <typename T>
-void    iter(T *a, size_t b,  void (*f)(T const &)) {
+void    iter(T *a, size_t b,  void (*f)(T &)) {
     for (size_t i = 0; i < b; i++)
         (*f)(a[i]);
 }

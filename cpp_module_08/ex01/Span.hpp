@@ -19,16 +19,16 @@ public:
     int     shortestSpan();
     int     longestSpan();
 
-    void    addMultiNumber(int amount);
+    void    addMultiNumber(int number);
 
     class ClassIsFull : public std::exception{
         public:
-            const char *what() const throw () { return "Can't add new element";}
+            const char *what() const throw ();
     };
 
     class FindSpan : public std::exception{
         public:
-            const char *what() const throw () { return "No span can be found";}
+            const char *what() const throw ();
     };
 };
 

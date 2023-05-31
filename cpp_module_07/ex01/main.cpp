@@ -18,11 +18,12 @@ int main(void) {
     ::iter(arr, 5, print);
 
     std::cout << "------------------------- String array -------------------------" << std::endl;
-    std::cout << "String array, first we wil use print, then add, then print again" << std::endl;
+    std::cout << "String array, first we wil use print, then changeString, then print again" << std::endl;
     std::string _array[5] = {"een", "twee", "drie", "vier", "vijf"};
-    ::iter(_array, 5, print);
-    ::iter(_array, 5, changeString);
-    std::cout << std::endl;
-    ::iter(_array, 5, print);
+    char *_arrayy
+    ::iter(_arrayy, 5, print);
+    // ::iter(_arrayy, 5, changeString);
+    // std::cout << std::endl;
+    // ::iter(_array, 5, print);
     exit(EXIT_SUCCESS);
 }

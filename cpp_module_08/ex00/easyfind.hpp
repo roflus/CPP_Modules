@@ -3,17 +3,16 @@
 
 # include <iostream>
 # include <algorithm>
+# include <stdlib.h>
+
+class NotFound: public std::exception {
+    public:
+        const char *what() const throw();
+};
 
 template <typename T>
-int easyfind(T var, int number) {
-    typename T::iterator it;
-    it = std::find (var.begin(), var.end(), number);
-    if (it != var.end())
-        return 0;
-    else
-        return 1;
-}
+typename T::iterator easyfind(T &var, int number);
 
-
+# include "easyfind.tpp"
 
 #endif

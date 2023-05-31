@@ -4,7 +4,8 @@
 
 int main()
 {
-    MutantStack<int> mstack;
+    std::cout << "--------- MutantStack Test ---------" << std::endl;
+    MutantStack<int> mstack;  
     mstack.push(5);
     mstack.push(17);
     std::cout << "Top: " << mstack.top() << std::endl;
@@ -27,7 +28,7 @@ int main()
     }
     std::stack<int> s(mstack);
 
-    std::cout << "---------List Test---------" << std::endl;
+    std::cout << "--------- List Test ---------" << std::endl;
     std::list<int> lstack;
     lstack.push_back(5);
     lstack.push_back(17);
@@ -51,7 +52,7 @@ int main()
     }
     std::list<int> l(lstack);
 
-    std::cout << "---------Vector Test---------" << std::endl;
+    std::cout << "--------- Vector Test ---------" << std::endl;
     std::vector<int> vstack;
     vstack.push_back(5);
     vstack.push_back(17);
@@ -69,10 +70,32 @@ int main()
     --vlit;
     while (vlit != vlite)
     {
-        std::cout << "List: ";
+        std::cout << "Vector: ";
         std::cout << *vlit << std::endl;
         ++vlit;
     }
     std::vector<int> v(vstack);
+
+    std::cout << "----------- Reverse test --------------" << std::endl;
+    {
+        MutantStack<int> mstack;
+
+        mstack.push(3);
+        mstack.push(5);
+        mstack.push(737);
+        mstack.push(0);
+
+        MutantStack<int>::reverse_iterator it = mstack.rbegin();
+        MutantStack<int>::reverse_iterator ite = mstack.rend();
+
+        ++it;
+        --it;
+        while (it != ite)
+        {
+            std::cout << "reversed: " << *it << std::endl;
+            ++it;
+        }
+    }
+    std::cout << std::endl;
     return 0;
 }

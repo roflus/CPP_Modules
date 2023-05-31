@@ -11,62 +11,21 @@ private:
     unsigned int _size;
 
 public:
-    Array()
-    {
-        std::cout << "Standard constructor called" << std::endl;
-        _size = 0;
-        _arr = new T[0];
-    }
-    Array(unsigned int n)
-    {
-        T *temp = new T();
-        _size = n;
-        _arr = new T[_size];
-        for (unsigned int i = 0; i < _size; i++)
-        {
-            _arr[i] = *temp;
-        }
-        delete temp;
-    }
-    Array(const Array &old_obj)
-    {
-        std::cout << "Copy constructor called" << std::endl;
-        *this = old_obj;
-    }
-    Array &operator=(const Array &old_obj)
-    {
-        std::cout << "Copy assignment operator called" << std::endl;
-        _size = old_obj._size;
-        _arr = new T[_size];
-        for (unsigned int i = 0; i < _size; i++)
-        {
-            _arr[i] = new int(old_obj._arr[i]);
-        }
-        return *this;
-    }
-    ~Array()
-    {
-        std::cout << "Deconstructor called" << std::endl;
-        delete[] _arr;
-    }
+    Array();
+    Array(unsigned int n);
+    Array(const Array &old_obj);
+    Array &operator=(const Array &old_obj);
+    ~Array();
 
     class ArrayOutOfRangeException : public std::exception
     {
-    public:
-        const char *what() const throw() { return "Array is out of range"; }
+        public:
+            const char *what() const throw();
     };
 
-    T &operator[](unsigned int size) const
-    {
-        if (size >= _size)
-            throw ArrayOutOfRangeException();
-        return _arr[size];
-    };
-
-    unsigned int size(void)
-    {
-        return _size;
-    }
+    T& operator[](unsigned int size) const;
+    unsigned int size(void);
 };
 
+#include "Array.tpp"
 #endif

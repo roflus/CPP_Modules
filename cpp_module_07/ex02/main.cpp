@@ -4,47 +4,50 @@
 #define MAX_VAL 750
 int main(int, char**)
 {
+    std::cout << "---------------INT-----------------" << std::endl;
     Array<int> empty;
     Array<int> test(7);
-    // std::cout << test.size() << std::endl;
-    for(int i = 0; i < 7; i++){
-        test[i] = i;
-    }
     try {
         for(int i = 0; i < 7; i++){
-            printf("int: %i \n", test[i]);
+            test[i] = i;
+        }
+        for(int i = 0; i < 7; i++){
+           std::cout << "Int: " << test[i] << std::endl;
         }
     }
     catch (const std::exception& e){
         std::cerr << e.what() << '\n';
     }
+    std::cout << "Empty size: " << empty.size() << std::endl;
+    std::cout << "Test size: " << test.size() << std::endl;
 
-    // std::cout << test.size() << std::endl;
 
+    std::cout << "---------------Float-----------------" << std::endl;
     Array<float> empt;
     Array<float> ftest(5);
     float f = 0.1f;
-    for(int i = 0; i < 5; f += 0.1, i++){
-        ftest[i] = f;
-    }
     try {
+        for(int i = 0; i < 5; f += 0.1, i++){
+            ftest[i] = f;
+        }
         for(int i = 0; i < 7; i++){
-            printf("Float: %f \n", ftest[i]);
+           std::cout << "Float: " << ftest[i] << std::endl;
         }
     }
     catch (const std::exception& e){
         std::cerr << e.what() << '\n';
     }
-    std::cout << ftest.size() << std::endl;
+    std::cout << "Ftest size: " << ftest.size() << std::endl;
 
+    std::cout << "---------------String-----------------" << std::endl;
     Array<std::string> emp;
     Array<std::string> stest(5);
-    stest[0] = "1";
-    stest[1] = "2";
-    stest[2] = "3";
-    stest[3] = "4";
-    stest[4] = "5";
     try {
+        stest[0] = "1";
+        stest[1] = "2";
+        stest[2] = "3";
+        stest[3] = "4";
+        stest[4] = "5";
         for(int i = 0; i < 7; i++){
            std::cout << "String: " << stest[i] << std::endl;
         }
@@ -52,7 +55,6 @@ int main(int, char**)
     catch (const std::exception& e){
         std::cerr << e.what() << '\n';
     }
-
 
     // Array<int> numbers(MAX_VAL);
     // int* mirror = new int[MAX_VAL];

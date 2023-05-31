@@ -21,9 +21,9 @@ Span::~Span() {
 }
 
 void    Span::addNumber(int num) {  
-        if (_numbers.size() == _N)
-            throw Span::ClassIsFull();
-        _numbers.push_back(num);
+    if (_numbers.size() == _N)
+        throw Span::ClassIsFull();
+    _numbers.push_back(num);
 }
 
 int     Span::longestSpan() {
@@ -52,10 +52,16 @@ int     Span::shortestSpan() {
     return diff;
 }
 
-void    Span::addMultiNumber(int amount) {
-    std::cout << "Adding multiple numbers" << std::endl;
-    std::srand((unsigned) std::time(NULL));
-    for (int i = 0; i < amount; i++) {
-        addNumber(std::rand() % 100);
-    }
+void    Span::addMultiNumber(int number) {
+    std::srand((unsigned int) std::time(NULL));
+    for (int i = 0; i < number; i++)
+        addNumber(std::rand());
+}
+
+const char*Span::ClassIsFull::what() const throw() {
+    return ("Can't add new element");
+}
+
+const char*Span::FindSpan::what() const throw() {
+    return ("No span can be found");
 }

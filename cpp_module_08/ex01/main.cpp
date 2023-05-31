@@ -3,15 +3,13 @@
 int main() {
 
     Span sp = Span(5);
+    std::cout << "----- SPAN OF SIZE 5 -----" << std::endl;
     try
     {
+        std::cout << "----- ADDING ONE NUMBER TO SPAN -----" << std::endl;
         sp.addNumber(6);
-        sp.addNumber(3);
-        sp.addNumber(17);
-        sp.addNumber(9);
-        sp.addNumber(11);
-        sp.addNumber(12);
-        sp.addNumber(11);
+        std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+        std::cout << "Longest span: " << sp.longestSpan() << std::endl;
     }
     catch(const std::exception& e)
     {
@@ -19,7 +17,12 @@ int main() {
     }
     try
     {
-        std::cout << sp.shortestSpan() << std::endl;
+        std::cout << "----- ADDING MORE NUMBERS TO SPAN -----" << std::endl;
+        sp.addNumber(8);
+        sp.addNumber(2);
+        sp.addNumber(14);
+        std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+        std::cout << "Longest span: " << sp.longestSpan() << std::endl;
     }
     catch(const std::exception& e)
     {
@@ -27,30 +30,34 @@ int main() {
     }
     try
     {
-        std::cout << sp.longestSpan() << std::endl;
+        std::cout << "----- ADDING TO MANY NUMBERS TO SPAN -----" << std::endl;
+        sp.addNumber(8);
+        sp.addNumber(2);
+        sp.addNumber(14);
+        std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+        std::cout << "Longest span: " << sp.longestSpan() << std::endl;
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
 
-    Span span = Span(5);
+
+    Span span = Span(11111);
+    std::cout << "----- SPAN OF SIZE 11111 -----" << std::endl;
     try
     {
-        span.addMultiNumber(8);
+        std::cout << "----- ADDING MULTIPLE NUMBERS: 10000 -----" << std::endl;
+        span.addMultiNumber(10000);
+        std::cout << "----- ADDING MULTIPLE NUMBERS: 1111 -----" << std::endl;
+        span.addMultiNumber(1111);
+        std::cout << "Shortest span: " << span.shortestSpan() << std::endl;
+        std::cout << "Longest span: " << span.longestSpan() << std::endl;
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
-    try
-    {
-        std::cout << span.shortestSpan() << std::endl;
-        std::cout << span.longestSpan() << std::endl;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
+
     return 0;
 }
